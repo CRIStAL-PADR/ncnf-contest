@@ -2,8 +2,8 @@ import random
 from models.model import Model
 
 class Mock(Model):
-    name = "Copy the temperature value from the input data"
-    description = """A not working thermal model"""
+    name = "MockModel"
+    description = """A not working thermal model that copy the temperature value from the input data"""
     authors = "Damien Marchal"
     variables = {
         "Ti:" : { "desc" : "Internal temperature" },
