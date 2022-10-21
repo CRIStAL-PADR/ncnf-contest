@@ -18,6 +18,12 @@ D'autres datasets correspondront à des données de bâtiment non connus avant l
 
 Les méthodes seront classée en fonction de leur score. 
 
+Participations:
+---------------
+Le concours est ouvert à tous participants.
+Les prix du concours seront XXX, YYY. 
+
+
 Description fichiers de données:
 --------------------------------
 
