@@ -24,15 +24,14 @@ class TestModel(unittest.TestCase):
     def test_evaluate(self):
         model = self.model_class()
         model.initialize_from(pandas.read_csv("datasets/dataset-1.csv"))
-        self.assertTrue(model.evaluate({"Ta" : 0.0}), float)
+        self.assertTrue(model.evaluate({"Ta" : 0.0, "Ti" : 19}), float)
 
     def test_evaluate_timeserie(self):
         timeserie=pandas.read_csv("datasets/dataset-1.csv")
-        model = train(self.model_class, timeserie)
         model = self.model_class()
         model.initialize_from(pandas.read_csv("datasets/dataset-1.csv"))
 
-        self.assertTrue(isinstance(model.evaluate_timeserie(timeserie), list))
+        self.assertTrue(isinstance(model.evaluate_timeserie(timeserie), pandas.DataFrame))
         self.assertEqual(len(timeserie), len(model.evaluate_timeserie(timeserie)))
 
 if __name__ == '__main__':

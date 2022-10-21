@@ -9,19 +9,22 @@ class TestEvaluate(unittest.TestCase):
     model_class = Mock 
 
     def test_train(self):
-        model = train(self.model_class, pandas.read_csv("datasets/dataset-1.csv"))
+        model = self.model_class()
+        train(model, pandas.read_csv("datasets/dataset-1.csv"))
         self.assertTrue(isinstance(model, self.model_class))
 
     def test_evaluate_timeserie(self):
         timeserie=pandas.read_csv("datasets/dataset-1.csv")
-        model = train(self.model_class, timeserie)
+        model = self.model_class()
+        train(model, timeserie)
         self.assertTrue(isinstance(evaluate_timeserie(model, timeserie), pandas.DataFrame))
         self.assertEqual(len(timeserie), len(model.evaluate_timeserie(timeserie)))
 
     def test_score_timeserie(self):
         timeserie=pandas.read_csv("datasets/dataset-1.csv")
-        tmodel = train(self.model_class, timeserie)
-        tprediction = evaluate_timeserie(tmodel, timeserie)
+        model = self.model_class()
+        train(model, timeserie)
+        tprediction = evaluate_timeserie(model, timeserie)
         tscore = score_timeserie(tprediction, timeserie)
         self.assertEquals(tscore, 0)
 
